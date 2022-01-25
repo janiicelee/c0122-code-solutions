@@ -21,12 +21,18 @@
     <br />
     <div>
       <p>Favorite Language (choose one)</p>
-      <input type="radio" name="language" value="html" checked="checked" />
-      <label id="language" for="html">HTML</label>
-      <input type="radio" name="language" value="css" checked="checked" />
-      <label id="language" for="html">CSS</label>
-      <input type="radio" name="language" value="javascript" checked="checked" />
-      <label id="language" for="html">Javascript</label>
+      <label>
+        <input type="radio" name="language" value="html" checked="checked" />
+        HTML
+      </label>
+      <label>
+        <input type="radio" name="language" value="css" checked="checked" />
+        CSS
+      </label>
+      <label>
+        <input type="radio" name="language" value="javascript" checked="checked" />
+        Javascript
+      </label>
     </div>
     <br />
     <div>
@@ -37,11 +43,12 @@
     </div>
     <br />
     <div>
-      <label for="comments">Comments</label><br />
-      <textarea id="comments" name="comments" cols="40" rows="10"></textarea><br />
-      <input type="submit" name="submit" value="Submit" />
+      <label for="comments">Comments</label>
+      <div>
+        <textarea id="comments" name="comments" cols="40" rows="10"></textarea><br />
+      </div>
     </div>
-
+    <input type="submit" name="submit" value="Submit" />
   </form>
 </body>
 </html>
