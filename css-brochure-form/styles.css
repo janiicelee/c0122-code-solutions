@@ -6,7 +6,7 @@ form {
 
 h3 {
   text-align: center;
-  color: orangered;
+  color: #ec5d57;
 }
 
 label {
@@ -37,8 +37,8 @@ select {
 button {
   font-family: "Brandon Grotesque", sans-serif !important;
   color: white;
-  background-color: orangered;
-  border: orangered;
+  background-color: #ec5d57;
+  border: #ec5d57;
   float: right;
   padding: 5px 20px;
   border-radius: 30px;
