@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  font-family: Lato, sans-serif !important;
+}
+
+h2 {
+  text-align: center;
+  margin: 50px;
+}
+
+body {
+  background-color: #1996da;
+}
+
+img {
+  padding: 10%;
+  width: 100%;
+}
+
+p.text {
+  color: lightgray;
+  font-size: small;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.round-image {
+  border-radius: 50%;
+  background-color: white;
+  width: 40%;
+}
+
+.column-one-third {
+  width: 33%;
+  text-align: center;
+  margin: 10px;
+}
+
+.text {
+  color: white;
+}
