@@ -14,7 +14,6 @@ body {
 
 img {
   padding: 10%;
-  width: 100%;
 }
 
 p.text {
@@ -34,14 +33,12 @@ p.text {
 .round-image {
   border-radius: 50%;
   background-color: white;
-  width: 40%;
+  width: 100px;
 }
 
 .column-one-third {
   width: 33%;
   text-align: center;
-
-  /* margin: 5px; */
 }
 
 .text {
