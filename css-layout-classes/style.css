@@ -30,7 +30,7 @@ img {
   width: 100%;
 }
 
-.column-first {
+.column-one-third {
   width: 33%;
 }
 
@@ -38,11 +38,7 @@ img {
   width: 25%;
 }
 
-.column-second {
-  width: 50%;
-}
-
-.column-third {
+.column-half {
   width: 50%;
 }
 
