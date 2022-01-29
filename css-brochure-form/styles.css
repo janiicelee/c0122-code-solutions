@@ -1,7 +1,7 @@
 form {
   width: 50%;
   margin: auto;
-  font-family: "Brandon Grotesque", sans-serif !important;
+  font-family: "Brandon Grotesque", sans-serif;
 }
 
 h3 {
@@ -35,7 +35,7 @@ select {
 }
 
 button {
-  font-family: "Brandon Grotesque", sans-serif !important;
+  font-family: "Brandon Grotesque", sans-serif;
   color: white;
   background-color: #ec5d57;
   border: #ec5d57;
