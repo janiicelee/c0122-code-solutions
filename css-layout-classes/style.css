@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  flex-direction: row;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  margin: auto;
+}
+
+p {
+  padding: 2px;
+  margin: auto;
+  border: 1px solid white;
+}
+
+img {
+  align-items: center;
+  width: 100%;
+}
+
+.column-one-third {
+  width: 33%;
+}
+
+.column-one-fourth {
+  width: 25%;
+}
+
+.column-half {
+  width: 50%;
+}
+
+div {
+  margin: auto;
+}
