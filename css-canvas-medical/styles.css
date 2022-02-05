@@ -104,24 +104,32 @@ p {
   padding-bottom: 100px;
 }
 
-.column-one-third {
-  width: 60%;
+.column-two {
+  max-width: 900px;
   color: #6f6f6f;
   justify-content: space-between;
-  align-items: center;
-  margin: 20px 100px;
+  padding: 20px 100px;
 }
 
-.column-one-third > p {
+.column-two > p {
   font-size: smaller;
 }
 
-.column-fourth {
+.column-one-third {
   background: #525351;
   width: 100%;
-  flex-basis: 25%;
+  flex-basis: 35%;
+  justify-content: space-between;
   padding: 100px 50px;
   color: white;
+}
+
+.company {
+  padding-left: 300px;
+}
+
+.product {
+  padding-left: 100px;
 }
 
 .brown-background {
