@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+  font-family: Lato, sans-serif !important;
+}
+
+h2 {
+  text-align: center;
+  margin: 50px 50px 0;
+}
+
+body {
+  background-color: #1996da;
+}
+
+img {
+  padding: 25%;
+  width: 100%;
+}
+
+p.text {
+  color: lightgray;
+  font-size: small;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.round-image {
+  border-radius: 50%;
+  background-color: white;
+  margin: 30px 80px;
+}
+
+h3.text {
+  white-space: nowrap;
+}
+
+.column-one-third {
+  text-align: center;
+  margin: 0 10px;
+  width: 33%;
+}
+
+.text {
+  color: white;
+}
