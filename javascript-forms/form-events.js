@@ -23,3 +23,17 @@ $input.addEventListener('input', handleInput, false);
 $textArea.addEventListener('focus', handleFocus, false);
 $textArea.addEventListener('blur', handleBlur, false);
 $textArea.addEventListener('input', handleInput, false);
+
+/* notes
+
+var $nameInput = document.querySelector('#user-name');
+var $emailInput = document.querySelector('#user-email');
+var $messageInput = document.querySelector('#user-message');
+
+$nameInput.addEventListener('input', handleInput);
+$emailInput.addEventListener('input', handleInput);
+$messageInput.addEventListener('input', handleInput);
+
+same with focus and blur
+
+*/
