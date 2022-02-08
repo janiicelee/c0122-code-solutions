@@ -87,9 +87,12 @@ p {
 }
 
 .column-full {
+  width: 100%;
+}
+
+.style-full {
   justify-content: center;
   text-align: center;
-  width: 100%;
   color: #6f6f6f;
   background: #fafafa;
   padding: 50px;
@@ -98,27 +101,36 @@ p {
 .column-half {
   width: 100%;
   flex-basis: 50%;
+}
+
+.style-half {
   text-align: center;
   color: #6f6f6f;
   background: #fafafa;
   padding-bottom: 100px;
 }
 
-.column-two {
+.column-one-half {
   max-width: 900px;
+}
+
+.style-one-half {
   color: #6f6f6f;
   justify-content: space-between;
   padding: 20px 100px;
 }
 
-.column-two > p {
+.column-one-half > p {
   font-size: smaller;
 }
 
 .column-one-third {
-  background: #525351;
   width: 100%;
   flex-basis: 35%;
+}
+
+.style-one-third {
+  background: #525351;
   justify-content: space-between;
   padding: 100px 50px;
   color: white;
