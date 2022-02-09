@@ -12,11 +12,9 @@
 function pick(source, keys) {
   var obj = {};
 
-  for (var i = 0; i < keys.length; i++) {
-    for (var name in source) {
-      if (name === keys[i] && source[name] !== undefined) {
-        obj[name] = source[name];
-      }
+  for (var key in source) {
+    if (keys.includes(key) && source[key] !== undefined) {
+      obj[key] = source[key];
     }
   }
   return obj;
