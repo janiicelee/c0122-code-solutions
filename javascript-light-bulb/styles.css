@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.background.off {
+  background-color: black;
+}
+
+.background.on {
+  background-color: #fef9f1;
+}
+
+.container {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-bulb {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  margin-top: 300px;
+}
+
+.light-bulb.off {
+  background-color: rgb(44 42 42);
+}
+
+.light-bulb.on {
+  background-color: #faea84;
+  box-shadow: -0.3rem 0 4em #faea84;
+}
