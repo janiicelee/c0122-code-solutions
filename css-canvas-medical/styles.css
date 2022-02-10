@@ -90,7 +90,7 @@ p {
   width: 100%;
 }
 
-.style-full {
+.third-row {
   justify-content: center;
   text-align: center;
   color: #6f6f6f;
@@ -103,7 +103,7 @@ p {
   flex-basis: 50%;
 }
 
-.style-half {
+.fourth-row {
   text-align: center;
   color: #6f6f6f;
   background: #fafafa;
@@ -114,7 +114,7 @@ p {
   max-width: 900px;
 }
 
-.style-one-half {
+.schedule-meeting-section {
   color: #6f6f6f;
   justify-content: space-between;
   padding: 20px 100px;
@@ -129,7 +129,7 @@ p {
   flex-basis: 35%;
 }
 
-.style-one-third {
+.bottom-menu-section {
   background: #525351;
   justify-content: space-between;
   padding: 100px 50px;
@@ -142,10 +142,6 @@ p {
 
 .product {
   padding-left: 100px;
-}
-
-.brown-background {
-  background: #525351;
 }
 
 .address {
