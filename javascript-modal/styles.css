@@ -7,10 +7,23 @@
   margin: auto;
 }
 
+.row {
+  display: flex;
+}
+
 .open-modal {
   background-color: blue;
   color: white;
   border-radius: 5px;
   padding: 5px 30px;
   font-size: larger;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+}
+
+.modal-content {
+  position: relative;
 }
