@@ -10,7 +10,6 @@ $tabContainer.addEventListener('click', function (event) {
   for (var i = 0; i < $tab.length; i++) {
     if ($tab[i] === event.target) {
       $tab[i].className = 'tab active';
-
     } else {
       $tab[i].className = 'tab';
     }
@@ -18,13 +17,12 @@ $tabContainer.addEventListener('click', function (event) {
 
   var $dataView = event.target.getAttribute('data-view');
 
-  if (event.target.getAttribute('class') === 'tab active') {
-    for (var j = 0; j < $view.length; j++) {
-      if ($view[j].getAttribute('data-view') === $dataView) {
-        $view[j].className = 'view';
-      } else {
-        $view[j].className = 'view hidden';
-      }
+  for (var j = 0; j < $view.length; j++) {
+    if ($view[j].getAttribute('data-view') === $dataView) {
+      $view[j].className = 'view';
+    } else {
+      $view[j].className = 'view hidden';
     }
   }
+
 });
