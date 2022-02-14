@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.phrase {
+  font-family: "Courier New", Courier, monospace;
+
+  /* align-items: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+span {
+  /* border-bottom: 4px solid; */
+}
+
+.first-letter {
+  border-bottom: 4px solid;
+}
+
+.right {
+  color: #1acd1b;
+  border-bottom: 4px solid;
+}
+
+.wrong {
+  color: #f80606;
+  border-bottom: 4px solid #f80606;
+}
