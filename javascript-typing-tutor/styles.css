@@ -12,17 +12,15 @@
 }
 
 .phrase {
-  font-family: "Courier New", Courier, monospace;
-
-  /* align-items: center; */
+  font-family: Courier, sans-serif;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-span {
-  /* border-bottom: 4px solid; */
+.black-line {
+  border-bottom: 4px solid black;
 }
 
 .first-letter {
@@ -31,7 +29,6 @@ span {
 
 .right {
   color: #1acd1b;
-  border-bottom: 4px solid;
 }
 
 .wrong {
