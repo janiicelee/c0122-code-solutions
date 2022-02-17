@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+}
+
+.phrase {
+  font-family: Courier, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.black-line {
+  border-bottom: 4px solid black;
+}
+
+.first-letter {
+  border-bottom: 4px solid;
+}
+
+.right {
+  color: #1acd1b;
+}
+
+.wrong {
+  color: #f80606;
+  border-bottom: 4px solid #f80606;
+}
