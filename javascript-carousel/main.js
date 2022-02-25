@@ -22,34 +22,44 @@ function advanceImage() {
 }
 
 var $rightIcon = document.querySelector('#right-icon');
-$rightIcon.addEventListener('click', function () {
+$rightIcon.addEventListener('click', handleRightIcon);
+
+function handleRightIcon(event) {
   clearInterval(intervalID);
   intervalID = setInterval(advanceImage, 3000);
-  if (currentIndex <= images.length) {
-    $image.setAttribute('src', images[currentIndex + 1]);
-    $dots[currentIndex].setAttribute('class', 'far fa-circle');
-    currentIndex++;
+
+  for (var i = 0; i < images.length; i++) {
+    $image.setAttribute('src', images[i]);
+    $dots[i].setAttribute('class', 'far fa-circle');
+  }
+  currentIndex++;
+  if (currentIndex > images.length - 1) {
+    currentIndex = 0;
   }
 
-  if (currentIndex !== i) {
-    $dots[currentIndex].setAttribute('class', 'fas fa-circle');
-  }
-
-});
+  $image.setAttribute('src', images[currentIndex]);
+  $dots[currentIndex].setAttribute('class', 'fas fa-circle');
+}
 
 var $leftIcon = document.querySelector('#left-icon');
-$leftIcon.addEventListener('click', function () {
+$leftIcon.addEventListener('click', handleLeftIcon);
+
+function handleLeftIcon(event) {
   clearInterval(intervalID);
   intervalID = setInterval(advanceImage, 3000);
-  if (currentIndex > 0) {
-    $image.setAttribute('src', images[currentIndex - 1]);
-    $dots[currentIndex].setAttribute('class', 'far fa-circle');
-    currentIndex--;
+
+  for (var i = images.length - 1; i >= 0; i--) {
+
+    $image.setAttribute('src', images[i]);
+    $dots[i].setAttribute('class', 'far fa-circle');
   }
-  if (currentIndex !== i) {
-    $dots[currentIndex].setAttribute('class', 'fas fa-circle');
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
   }
-});
+  $image.setAttribute('src', images[currentIndex]);
+  $dots[currentIndex].setAttribute('class', 'fas fa-circle');
+}
 
 for (var i = 0; i < $dots.length; i++) {
   $dots[i].addEventListener('click', clickDots);
