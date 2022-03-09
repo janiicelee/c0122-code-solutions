@@ -11,6 +11,15 @@ output: string
 
 */
 
-function reverseWords(string) {
-  return string.split('').reverse().join('').split(' ').reverse().join(' ');
+// function reverseWords(string) {
+//   return string.split('').reverse().join('').split(' ').reverse().join(' ');
+// }
+
+function reverseWords(str) {
+  let reversed = '';
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+
+  return reversed.split(' ').reverse().join(' ');
 }
