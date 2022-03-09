@@ -10,10 +10,31 @@ output: boolean
 
 */
 
+// function isAnagram(firstString, secondString) {
+
+//   firstString = firstString.split('').sort().join('').replace(/\s/g, '');
+//   secondString = secondString.split('').sort().join('').replace(/\s/g, '');
+
+//   return firstString === secondString;
+// }
+
 function isAnagram(firstString, secondString) {
+  firstString = firstString.replaceAll(' ', '').toLowerCase();
+  secondString = secondString.replaceAll(' ', '').toLowerCase();
 
-  firstString = firstString.split('').sort().join('').replace(/\s/g, '');
-  secondString = secondString.split('').sort().join('').replace(/\s/g, '');
+  const lenFirst = firstString.length;
+  const lenSecond = secondString.length;
 
-  return firstString === secondString;
+  if (lenFirst !== lenSecond) {
+    return false;
+  }
+
+  var first = firstString.split('').sort().join('');
+  var second = secondString.split('').sort().join('');
+
+  if (first === second) {
+    return true;
+  }
+  return false;
+
 }
