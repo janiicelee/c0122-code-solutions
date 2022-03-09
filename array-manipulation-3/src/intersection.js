@@ -15,11 +15,9 @@ function intersection(first, second) {
   var same = [];
 
   for (var i = 0; i < first.length; i++) {
-    if (second.indexOf(first[i]) === -1) {
-      continue;
+    if (second.indexOf(first[i]) !== -1) {
+      same.push(first[i]);
     }
-    same.push(first[i]);
   }
-
   return same;
 }

@@ -14,7 +14,7 @@ output: boolean
 
 function equal(first, second) {
 
-  if (first == null || second == null) {
+  if (first === null || second === null) {
     return false;
   }
 

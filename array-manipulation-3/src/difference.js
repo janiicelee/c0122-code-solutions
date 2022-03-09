@@ -17,17 +17,15 @@ function difference(first, second) {
   var diff = [];
 
   for (var i = 0; i < first.length; i++) {
-    if (second.indexOf(first[i]) !== -1) {
-      continue;
+    if (second.indexOf(first[i]) === -1) {
+      diff.push(first[i]);
     }
-    diff.push(first[i]);
   }
 
   for (i = 0; i < second.length; i++) {
-    if (first.indexOf(second[i]) !== -1) {
-      continue;
+    if (first.indexOf(second[i]) === -1) {
+      diff.push(second[i]);
     }
-    diff.push(second[i]);
   }
 
   return diff;

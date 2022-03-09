@@ -4,17 +4,28 @@
 input: array
 output: array
 
-- make the input array flatten by one level
-- add the item to a new storage for the output.
-  - make a new array to add the arguments into it by using the concat method.
-    - concat adds 1 or more values to an array, creating a new array as a result.
-    - it is able to recognize values if they are an array and add them as individual element values rather than a single array value.
-  - make sure to add the elements of the given array
-    - use the apply method so that it doesn't add the array itself, instead add the elements inside the array
+- make a new storage for the output.
+- loop over the given array
+- make a variable for each item in the array (it can be an array or just a single element)
+- if the item is not an array, put in into the new storage
+- if the item is an array, loop over that array and put the item into the new storage
+- return the new storage
 
 */
 
 function flatten(arr) {
-  const flatArr = [].concat.apply([], arr);
-  return flatArr;
+  var flat = [];
+
+  for (var i = 0; i < arr.length; i++) {
+    var currentItem = arr[i];
+
+    if (!Array.isArray(currentItem)) {
+      flat.push(currentItem);
+    } else {
+      for (var j = 0; j < currentItem.length; j++) {
+        flat.push(currentItem[j]);
+      }
+    }
+  }
+  return flat;
 }
