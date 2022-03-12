@@ -20,6 +20,11 @@ console.log('Lodash is loaded:', typeof _ !== 'undefined');
   - make an array for all the players' scores
   - find the highest score in the array
   - if that score matches with the player, that player is the winner
+
+- create function when there is a tie
+  - make a new storage
+  - if there's more than one winner, store the winners into the storage
+  - start the game with the winners again
 */
 
 var suits = ['clubs', 'diamonds', 'hearts', 'spades'];
@@ -30,9 +35,9 @@ var players = [
   { name: 'kiki', hand: [], score: 0 },
   { name: 'toto', hand: [], score: 0 }
 ];
+var deck = [];
 
-function createCardDeck() {
-  var deck = [];
+function createCardDeck(suits, ranks) {
 
   for (var i = 0; i < suits.length; i++) {
     for (var j = 0; j < ranks.length; j++) {
@@ -40,23 +45,24 @@ function createCardDeck() {
       deck.push(card);
     }
   }
+  deck = _.shuffle(deck);
   return deck;
+
 }
 
-var shuffleCardDeck = _.shuffle(createCardDeck());
-
-function dealHandToPlayers() {
+function dealHandToPlayers(cards) {
+  var deck = createCardDeck(suits, ranks);
   for (var i = 0; i < players.length; i++) {
-    for (var j = 0; j < 2; j++) {
-      players[i].hand.push(shuffleCardDeck[j]);
-      shuffleCardDeck.splice(0, 2);
+    for (var j = 0; j < cards; j++) {
+      players[i].hand.push(deck[j]);
+      deck.splice(i, 1);
     }
   }
   return players;
 }
 
-function getScore() {
-  dealHandToPlayers();
+function getScore(players) {
+  players = dealHandToPlayers(2);
 
   for (var i = 0; i < players.length; i++) {
     var totalScore = 0;
@@ -77,25 +83,64 @@ function getScore() {
     players[i].score = totalScore;
   }
 
-  console.log(players);
   return players;
 }
 
-function getWinner() {
-  getScore();
-  var scores = [];
-  var winner = '';
+var highest = 0;
+var winner = '';
+var winners = [];
+function getWinner(players) {
+
+  players = getScore(players);
 
   for (var i = 0; i < players.length; i++) {
-    scores.push(players[i].score);
-    var highest = Math.max(...scores);
 
-    if (highest === players[i].score) {
-      winner = players[i].name;
+    if (highest < players[i].score) {
+      highest = players[i].score;
+      winner = players[i];
+    } else if (highest === players[i].score) {
+      winners.push(players[i]);
+      i++;
     }
   }
 
-  return winner;
+  if (winners.length > 1) {
+    handleTies(winners);
+  }
+  return winner.name;
 }
 
 console.log('The winner is ' + getWinner() + ' !!!');
+
+function handleTies(winners) {
+  var highest = 0;
+  winners = getScore(winners);
+
+  for (var i = 0; i < winners.length; i++) {
+    winners[i].hand.push(deck[i]);
+    deck.splice(i, 1);
+  }
+
+  getScore(winners);
+
+  for (i = 0; i < winners.length; i++) {
+    if (highest < winners[i].score) {
+      highest = winners[i].score;
+    } else if (winners[i].score !== highest) {
+      winners.splice(i, 1);
+    }
+  }
+
+  if (winners.length === 1) {
+    winner = winners[0];
+    return winner.name;
+  }
+  handleTies(winners);
+}
+
+function playGame(players, cards) {
+  createCardDeck(suits, ranks);
+  getWinner(players);
+}
+
+playGame(players, 2);
