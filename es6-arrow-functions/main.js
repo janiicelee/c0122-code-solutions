@@ -7,13 +7,12 @@ const jokester = {
     $jokeForm.classList.add('d-none');
     const $introStatement = this.renderJokePhrase('Hey Flash...');
     this.appendJokePhrase($introStatement);
-    const self = this;
-    setTimeout(function () {
-      const $jokeSetup = self.renderJokePhrase(setup);
-      self.appendJokePhrase($jokeSetup);
-      setTimeout(function () {
-        const $jokePunchline = self.renderJokePhrase(punchline);
-        self.appendJokePhrase($jokePunchline);
+    setTimeout(() => {
+      const $jokeSetup = this.renderJokePhrase(setup);
+      this.appendJokePhrase($jokeSetup);
+      setTimeout(() => {
+        const $jokePunchline = this.renderJokePhrase(punchline);
+        this.appendJokePhrase($jokePunchline);
         flash.laugh();
       }, 2000);
     }, 2000);
