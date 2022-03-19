@@ -19,7 +19,7 @@ app.post('/api/grades', (req, res) => {
     id: nextId,
     course: req.body.course,
     name: req.body.name,
-    score: req.body.score
+    score: parseInt(req.body.score)
   };
   nextId++;
 
