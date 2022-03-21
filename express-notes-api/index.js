@@ -5,11 +5,9 @@ const fs = require('fs');
 const dataJson = require('./data.json');
 
 app.get('/api/notes', (req, res) => {
-  if (!dataJson) {
-    return res.json([]);
-  } else {
-    return res.status(200).json(Object.values(dataJson.notes));
-  }
+
+  return res.status(200).json(Object.values(dataJson.notes));
+
 });
 
 app.get('/api/notes/:id', (req, res) => {
