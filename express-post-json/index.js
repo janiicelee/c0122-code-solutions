@@ -23,7 +23,7 @@ app.post('/api/grades', (req, res) => {
   };
   nextId++;
 
-  res.json(Object.values(grades));
+  res.json(grades[nextId]);
 });
 
 app.listen(3000, () => {
