@@ -41,3 +41,53 @@ app.get('/api/grades', (req, res, next) => {
       });
     });
 });
+
+app.post('/api/grades', (req, res, next) => {
+  const name = req.body.name;
+  const course = req.body.course;
+  const score = Number(req.body.score);
+
+  if (!req.body) {
+    res.status(400).json({
+      error: 'Input appropriate fields'
+    });
+  }
+
+  if (!name) {
+    res.status(400).json({
+      error: 'The name field is required'
+    });
+  }
+
+  if (!course) {
+    res.status(400).json({
+      error: 'The course field is required'
+    });
+  }
+
+  if (!score) {
+    res.status(400).json({
+      error: 'The score field is required'
+    });
+  }
+
+  const sql = `
+    insert into "grades" ("name", "course", "score")
+    values ($1, $2, $3)
+    returning *
+  `;
+
+  const params = [name, course, score];
+
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      res.status(200).json(grade);
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occurred'
+      });
+    });
+
+});
