@@ -18,7 +18,9 @@ app.listen(3000, () => {
   console.log('Listening on port 3000!');
 });
 
+// GET grades
 app.get('/api/grades', (req, res, next) => {
+
   const sql = `
     select "gradeId",
            "name",
@@ -32,7 +34,6 @@ app.get('/api/grades', (req, res, next) => {
     .then(result => {
       const grades = result.rows;
       res.status(200).json(grades);
-
     })
     .catch(err => {
       console.error(err);
@@ -42,6 +43,7 @@ app.get('/api/grades', (req, res, next) => {
     });
 });
 
+// CREATE grades
 app.post('/api/grades', (req, res, next) => {
   const name = req.body.name;
   const course = req.body.course;
@@ -51,24 +53,28 @@ app.post('/api/grades', (req, res, next) => {
     res.status(400).json({
       error: 'Input appropriate fields'
     });
+    return;
   }
 
   if (!name) {
     res.status(400).json({
       error: 'The name field is required'
     });
+    return;
   }
 
   if (!course) {
     res.status(400).json({
       error: 'The course field is required'
     });
+    return;
   }
 
   if (!score) {
     res.status(400).json({
       error: 'The score field is required'
     });
+    return;
   }
 
   const sql = `
@@ -90,4 +96,114 @@ app.post('/api/grades', (req, res, next) => {
       });
     });
 
+});
+
+// UPDATE a grade
+app.put('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = Number(req.param.gradeId);
+  const name = req.body.name;
+  const course = req.body.course;
+  const score = Number(req.body.score);
+
+  if (gradeId < 0) {
+    res.status(400).json({
+      error: 'gradeId should be a positive integer'
+    });
+    return;
+  }
+
+  if (!req.body) {
+    res.status(400).json({
+      error: 'Input appropriate fields'
+    });
+    return;
+  }
+
+  if (!name) {
+    res.status(400).json({
+      error: 'The name field is required'
+    });
+    return;
+  }
+
+  if (!course) {
+    res.status(400).json({
+      error: 'The course field is required'
+    });
+    return;
+  }
+
+  if (!score) {
+    res.status(400).json({
+      error: 'The score field is required'
+    });
+    return;
+  }
+
+  const sql = `
+    update "grades"
+    set "name" = $1,
+        "course" = $2,
+        "score" = $3
+    where "gradeId" = $4
+    returning *
+    `;
+
+  const params = [gradeId, name, course, score];
+
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: 'There is no matching grade'
+        });
+      } else {
+        res.status(200).json(grade);
+      }
+    }).catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occured.'
+      });
+    });
+});
+
+// DELETE a grade
+app.delete('/api/grades/:gradeId', (req, res, next) => {
+  const gradeId = Number(req.param.gradeId);
+
+  if (gradeId < 0) {
+    res.status(400).json({
+      error: 'gradeId must be a positive integer'
+    });
+    return;
+  }
+
+  const sql = `
+    delete from "grades"
+    where "gradeId" = $1
+    returning *
+    `;
+
+  const params = [gradeId];
+
+  db.query(sql, params)
+    .then(result => {
+      const grade = result.rows[0];
+      if (!grade) {
+        res.status(404).json({
+          error: 'There is no matching grade'
+        });
+      } else {
+        res.status(204).json(grade);
+
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({
+        error: 'An unexpected error occured'
+      });
+    });
 });
