@@ -24,13 +24,14 @@ console.log(sum);
 const product = numbers.reduce((previous, current) => previous * current);
 console.log(product);
 
+let balanceValue = 0;
 const balance = account.reduce((previous, current) => {
   if (current.type === 'deposit') {
-    previous + current.amount;
+    balanceValue = previous + current.amount;
   } else if (current.type === 'withdrawal') {
-    previous - current.amount;
+    balanceValue = previous - current.amount;
   }
-  return previous;
+  return balanceValue;
 }, 0);
 
 console.log(balance);
