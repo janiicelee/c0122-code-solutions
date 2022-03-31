@@ -14,17 +14,23 @@ class ToggleSwitch extends React.Component {
   render() {
     if (this.state.isClick === false) {
       return (
-      <label className="switch">
-        <div onClick={this.handleClick}></div>
-        <span className="slider-on round"></span>
-      </label>
+      <div>
+        <label className="switch" onClick={this.handleClick}>
+          <div type="checkbox"></div>
+          <span className="slider-on round"></span>
+        </label>
+        <div className="text">ON</div>
+      </div>
       );
     } else {
       return (
-    <label className="switch">
-      <div onClick={this.handleClick}></div>
-      <span className="slider-off round"></span>
-    </label>
+        <div>
+          <label className="switch" onClick={this.handleClick}>
+            <div type="checkbox"></div>
+            <span className="slider-off round"></span>
+          </label>
+          <div className="text">OFF</div>
+        </div>
       );
     }
   }
