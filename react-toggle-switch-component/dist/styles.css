@@ -1,0 +1,107 @@
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch div {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider-on {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: green;
+  transition: 0.4s;
+}
+
+.slider-off {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider-on::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+.slider-off::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  transform: translateX(26px);
+}
+
+div:checked + .slider-on {
+  background-color: green;
+}
+
+div:focus + .slider-on {
+  box-shadow: 0 0 1px green;
+}
+
+div:checked + .slider-on::before {
+  transform: translateX(26px);
+}
+
+div:checked + .slider-off {
+  background-color: gray;
+}
+
+div:focus + .slider-off {
+  box-shadow: 0 0 1px gray;
+}
+
+/* Rounded sliders */
+
+.slider-on.round {
+  border-radius: 34px;
+}
+
+.slider-off.round {
+  border-radius: 34px;
+}
+
+.slider-on.round::before {
+  border-radius: 50%;
+}
+
+.slider-off.round::before {
+  border-radius: 50%;
+}
+
+.text {
+  display: inline;
+  vertical-align: top;
+  line-height: 200%;
+  margin-left: 15px;
+  font-size: large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
