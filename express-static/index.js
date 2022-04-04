@@ -8,7 +8,7 @@ const join = path.join(__dirname, 'public');
 const staticValue = express.static(join);
 // console.log(staticValue);
 
-app.use('/public', staticValue);
+app.use(staticValue);
 
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
