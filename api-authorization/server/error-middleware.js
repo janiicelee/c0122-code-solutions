@@ -1,4 +1,10 @@
 const { JsonWebTokenError } = require('jsonwebtoken');
+// what is being destructured?
+// the JsonWebTokenError property
+// where is it being destructured from?
+// the object returned by the require function being called with the string "jsonwebtoken"
+// what is it being assigned to?
+// the const variable JsonWebTokenError
 const ClientError = require('./client-error');
 
 function errorMiddleware(err, req, res, next) {
