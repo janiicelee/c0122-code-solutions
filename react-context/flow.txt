@@ -1,0 +1,34 @@
+User can sign up.
+- User creates username and password and clicks the submit button
+- the handleSubmit function is called
+- the POST method sends a request to the 'api/auth/sign-up' path
+- the app.post method in the server/index.js file will be called
+- argon2 creates a hashed password and sends the sql queries to the database
+- the user property will be destructured and be assigned to the user variable
+- if done successfully, the client will get the response in JSON
+- the hash location will be set to 'sign-in'
+
+User can sign in.
+- User inputs the username and password that they created
+- the handleSubmit function is called
+- the POST method sends a request to the 'api/auth/sign-in' path
+- the app.post method in the server/index.js file will be called
+- the server runs the sql query to get the matching username
+- argon2 will verify the hashedPassword and the userPassword
+- the client will get the response in JSON
+- the handleSignIn method will be called
+- user and token will be destructured from result
+- the token is saved and the user prop of the state will be updated
+
+User can stay signed in (even if they refresh the page).
+- User refreshes the page
+- componentDidMount is called (app.jsx)
+- the user prop of the state will be updated
+- render method is called
+- the DOM will be updated
+
+User can sign out.
+- User clicks the 'sign-out' button
+- the onClick property will call the handleSignOut function
+- the user prop of the state will be updated to null
+- the DOM will be updated
