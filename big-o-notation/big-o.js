@@ -40,5 +40,5 @@ function uniqueQuadratic(words) {
       unique[unique.length] = word; // 3 * n = O(n)
     }
   }
-  return unique;                    // n * n = O(n^2)
+  return unique;                    // 1 * 1 = O(1)
 } // Big O Notation for uniqueQuadratic: O(n^2)
